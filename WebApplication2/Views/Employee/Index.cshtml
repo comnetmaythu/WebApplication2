@@ -1,0 +1,90 @@
+﻿@*@model IEnumerable<WebApplication2.Models.Employee>*@
+@{
+    /**/
+
+    //ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Razor Syntax</h2>
+
+@{
+    var date = DateTime.Now.ToShortDateString();
+    string message = "Hello World!";
+    <text>Today's date is:</text> @date <br />
+    @message
+}
+<br />
+<h3>IF Condition</h3>
+@if (DateTime.IsLeapYear(DateTime.Now.Year))
+{
+    @DateTime.Now.Year @:is a leap year.
+}
+else
+{
+    @DateTime.Now.Year @:is not a leap year.
+}
+<br />
+<h3>Foreach loop:</h3>
+@for (int i = 0; i < 5; i++)
+{
+    @i.ToString() <br />
+}
+<br />
+
+
+@*<h3>Example: Use Model in Razor</h3>
+    <text>Employee Detail:</text>
+    @foreach (var item in Model)
+    {
+        <ul>
+            <li>  @Html.DisplayNameFor(model => model.EmployeeName) : @Html.DisplayFor(modelItem => item.EmployeeName)</li>
+            <li>  @Html.DisplayNameFor(model => model.Salary) : @Html.DisplayFor(modelItem => item.Salary)</li>
+        </ul>
+    }
+    <br />*@
+
+<h3>Variable in Razor</h3>
+@{
+    string str = "";
+
+    if (1 > 0)
+    {
+        str = "Hello World!";
+    }
+}
+<p>@str</p>
+
+@*@model WebApplication2.Models.Employee
+    <!DOCTYPE html>
+       <html>
+           <head>
+               <meta name="viewport" content="width=device-width" />
+               <title>Index</title>
+
+           </head>
+           <body>
+               <div>
+                   <p>Name: @Model.Name</p>
+                   <p>City: @Model.City</p>
+                   <p>Salary:@Model.Salary</p>
+
+               </div>
+
+           </body>
+
+       </html>*@
+
+  <div style="line-height:20px; border:1px solid red;max-width:500px;padding:20px;background-color:darkseagreen;position:relative;">
+        @{
+            <br />
+            <text>Passoword</text> @Html.Password("Password", "", new { @class = "form-control" })<br /><br />
+            @Html.Label("EmployeeName") @Html.TextBox("EmployeeName", "", new { @class = "form-control" }) <br /><br />
+            @Html.Label("Gender")<br />
+            @Html.Label("Male") @Html.RadioButton("Gender", "Male")
+            @Html.Label("Female") @Html.RadioButton("Gender", "Female") <br /><br />
+            @Html.Label("City") @Html.TextArea("Description", "Yangon", new { @class = "form-control" }) <br /><br />
+            @:Salary:@Html.TextBox("Salary", "", new { @class = "form-control" })
+            <br />
+        }
+    </div> 
