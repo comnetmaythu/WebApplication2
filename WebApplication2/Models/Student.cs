@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication2.Models
 {
-    //maythu testing
+    //maythu testing2
 
     public class Student
     {
